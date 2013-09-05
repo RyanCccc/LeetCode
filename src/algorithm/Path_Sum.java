@@ -3,7 +3,7 @@ package algorithm;
 import util.TreeNode;
 import program.*;
 
-public class Path_Sum implements Testable{
+public class Path_Sum extends Testable{
 	public boolean hasPathSum(TreeNode root, int sum) {
 		if(root==null)
 			return false;
@@ -27,8 +27,8 @@ public class Path_Sum implements Testable{
 	}
 
 	@Override
-	public boolean test(Object a, int b) {
+	public boolean test(Object a, Object b) {
 		// TODO Auto-generated method stub
-		return hasPathSum((TreeNode)a,b);
+		return hasPathSum((TreeNode)a,(Integer)b);
 	}
 }

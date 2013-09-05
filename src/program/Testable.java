@@ -2,6 +2,7 @@ package program;
 
 import util.TreeNode;
 
-public interface Testable {
-	public boolean test(Object a, int b);
+public abstract class Testable {
+	public boolean test(Object a, Object b){return false;}
+	public boolean test(Object a, Object b, Object c){return false;}
 }

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import util.TreeNode;
 import program.*;
 
-public class Min_Depth implements Testable {
+public class Min_Depth extends Testable {
 	public int minDepth(TreeNode root) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
@@ -43,8 +43,8 @@ public class Min_Depth implements Testable {
 	}
 
 	@Override
-	public boolean test(Object node, int res) {
+	public boolean test(Object node, Object res) {
 		// TODO Auto-generated method stub
-		return minDepth((TreeNode)node) == res;
+		return minDepth((TreeNode)node) == (Integer)res;
 	}
 }

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import util.TreeNode;
 import program.*;
 
-public class Max_Depth implements Testable {
+public class Max_Depth extends Testable {
 	public int maxDepth(TreeNode root) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
@@ -40,8 +40,8 @@ public class Max_Depth implements Testable {
 	}	
 
 	@Override
-	public boolean test(Object node, int res) {
+	public boolean test(Object node, Object res) {
 		// TODO Auto-generated method stub
-		return maxDepth((TreeNode)node) == res;
+		return maxDepth((TreeNode)node) == (Integer)res;
 	}
 }

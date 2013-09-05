@@ -1,5 +1,6 @@
 package program;
 
+import algorithm.Add_Binary;
 import algorithm.Max_Depth;
 import algorithm.Min_Depth;
 import algorithm.Path_Sum;
@@ -28,10 +29,22 @@ public class Program {
 		result(max_depth, nodeA, 4);
 		result(max_depth, nodeB, 1);
 		result(max_depth, nodeC, 5);
+		System.out.println("=======Test ADD_BINARY========");
+		Add_Binary add_binary = new Add_Binary();
+		result(add_binary, "11","1" ,"100");
+		result(add_binary, "11","" ,"11");
+		result(add_binary, "1111111","1" ,"10000000");
 	}
 	
-	public static void result(Testable test, Object o, int res){
-		boolean result = test.test((TreeNode)o, res);
+	public static void result(Testable test, Object a, Object res){
+		boolean result = test.test(a, res);
+		if(result)
+			System.out.println("pass");
+		else
+			System.out.println("failed");
+	}
+	public static void result(Testable test, Object a, Object b, Object c){
+		boolean result = test.test(a, b,c);
 		if(result)
 			System.out.println("pass");
 		else
