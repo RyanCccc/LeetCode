@@ -2,9 +2,6 @@ package program;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 import util.Tree;
 import util.TreeNode;
 import algorithm.Add_Binary;
@@ -29,24 +26,24 @@ public class Program {
 
 		System.out.println("=======Test Path_Sum========");
 		Path_Sum path_sum = new Path_Sum();
-		result(path_sum, nodeA, 22);
-		result(path_sum, nodeB, 5);
+		result(path_sum, new Object[]{nodeA}, 22);
+		result(path_sum, new Object[]{nodeB}, 5);
 
 		System.out.println("=======Test Min_Sum========");
 		Min_Depth min_depth = new Min_Depth();
-		result(min_depth, nodeA, 3);
+		result(min_depth, new Object[]{nodeA}, 3);
 
 		System.out.println("=======Test Max_Sum========");
 		Max_Depth max_depth = new Max_Depth();
-		result(max_depth, nodeA, 4);
-		result(max_depth, nodeB, 1);
-		result(max_depth, nodeC, 5);
+		result(max_depth, new Object[]{nodeA}, 4);
+		result(max_depth, new Object[]{nodeB}, 1);
+		result(max_depth, new Object[]{nodeC}, 5);
 
 		System.out.println("=======Test Add_Binary========");
 		Add_Binary add_binary = new Add_Binary();
-		result(add_binary, "11", "1", "100");
-		result(add_binary, "11", "", "11");
-		result(add_binary, "1111111", "1", "10000000");
+		result(add_binary, new Object[]{"11", "1"}, "100");
+		result(add_binary, new Object[]{"11", ""}, "11");
+		result(add_binary, new Object[]{"1111111", "1"}, "10000000");
 
 		System.out.println("=======Test toNestedList========");
 		Integer[][] arrays = new Integer[][] { { 2, 4 }, { 3, 4 } };
@@ -54,11 +51,11 @@ public class Program {
 
 		System.out.println("=======Test Combinations========");
 		Combinations combinations = new Combinations();
-		result(combinations, 3,2, toNestedList(new Integer[][]{{1,2},{1,3},{2,3}}));
+		result(combinations, new Object[]{3,2}, toNestedList(new Integer[][]{{1,2},{1,3},{2,3}}));
 		Integer[][] input = new Integer[][] { { 2, 4 }, { 3, 4 }, { 2, 3 },
 				{ 1, 2 }, { 1, 3 }, { 1, 4 } };
 		ArrayList<ArrayList<Integer>> res = toNestedList(input);
-		result(combinations, 4, 2, res);
+		result(combinations, new Object[]{4, 2}, res);
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
@@ -69,16 +66,8 @@ public class Program {
 		return ret;
 	}
 
-	public static void result(Testable test, Object a, Object res) {
-		boolean result = test.test(a, res);
-		if (result)
-			System.out.println("pass");
-		else
-			System.out.println("failed");
-	}
-
-	public static void result(Testable test, Object a, Object b, Object c) {
-		boolean result = test.test(a, b, c);
+	public static void result(Testable test, Object[] args, Object res) {
+		boolean result = test.test(args, res);
 		if (result)
 			System.out.println("pass");
 		else

@@ -4,7 +4,7 @@ import java.util.*;
 
 import program.Testable;
 
-public class Combinations extends Testable {
+public class Combinations implements Testable {
 	public ArrayList<ArrayList<Integer>> combine(int n, int k) {
 
 		return helper(1, n, k);
@@ -38,15 +38,15 @@ public class Combinations extends Testable {
 	}
 
 	@Override
-	public boolean test(Object a, Object b, Object c) {
+	public boolean test(Object[] args, Object res) {
 		// TODO Auto-generated method stub
 		// System.out.println(addBinary((String)a,(String)b));
-		ArrayList<ArrayList<Integer>> res = combine((Integer) a, (Integer) b);
-		ArrayList<ArrayList<Integer>> exp = (ArrayList<ArrayList<Integer>>) c;
-		for (ArrayList<Integer> r : res) {
+		ArrayList<ArrayList<Integer>> result = combine((Integer) args[0], (Integer) args[1]);
+		ArrayList<ArrayList<Integer>> exp = (ArrayList<ArrayList<Integer>>) res;
+		for (ArrayList<Integer> r : result) {
 			if (!exp.contains(r))
 				return false;
 		}
-		return exp.size() == res.size();
+		return exp.size() == result.size();
 	}
 }

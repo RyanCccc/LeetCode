@@ -2,7 +2,7 @@ package algorithm;
 
 import program.*;
 
-public class Add_Binary extends Testable{
+public class Add_Binary implements Testable{
 	public String addBinary(String a, String b) {
         // Start typing your Java solution below
         // DO NOT write main() function
@@ -40,9 +40,9 @@ public class Add_Binary extends Testable{
     }
 
 	@Override
-	public boolean test(Object a, Object b, Object c) {
+	public boolean test(Object[] args, Object res) {
 		// TODO Auto-generated method stub
 		//System.out.println(addBinary((String)a,(String)b));
-		return addBinary((String)a,(String)b).equals((String)c);
+		return addBinary((String)args[0],(String)args[1]).equals((String)res);
 	}
 }
