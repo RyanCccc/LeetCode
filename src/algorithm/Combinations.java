@@ -30,12 +30,9 @@ public class Combinations extends Testable {
 		for (ArrayList<Integer> list : ret) {
 			list.add(0, begin);
 		}
-		if (begin < end) {
-			ArrayList<ArrayList<Integer>> addition = helper(begin + 1, end, k);
-			
-			for (ArrayList<Integer> list : addition) {
-				ret.add(list);
-			}
+		ArrayList<ArrayList<Integer>> addition = helper(begin + 1, end, k);
+		for (ArrayList<Integer> list : addition) {
+			ret.add(list);
 		}
 		return ret;
 	}
