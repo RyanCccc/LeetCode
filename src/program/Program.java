@@ -1,51 +1,85 @@
 package program;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
+import util.Tree;
+import util.TreeNode;
 import algorithm.Add_Binary;
+import algorithm.Combinations;
 import algorithm.Max_Depth;
 import algorithm.Min_Depth;
 import algorithm.Path_Sum;
-import util.*;
 
 public class Program {
 	public final static int NULL = Integer.MIN_VALUE;
-	public static void main(String[] args){
-		int[] A = new int[]{5,4,8,11,NULL, 13,4,7,2,NULL,NULL,NULL,NULL,NULL,1};
-		int[] C = new int[]{5,4,8,11,NULL, 13,4,7,2,NULL,NULL,NULL,NULL,NULL,1,2};
+
+	public static void main(String[] args) {
+		int[] A = new int[] { 5, 4, 8, 11, NULL, 13, 4, 7, 2, NULL, NULL, NULL,
+				NULL, NULL, 1 };
+		int[] C = new int[] { 5, 4, 8, 11, NULL, 13, 4, 7, 2, NULL, NULL, NULL,
+				NULL, NULL, 1, 2 };
 		TreeNode nodeA = Tree.generateTree(A);
-		int[] B = new int[]{5};
+		int[] B = new int[] { 5 };
 		TreeNode nodeB = Tree.generateTree(B);
 		TreeNode nodeC = Tree.generateTree(C);
-		//Tree.printTree(node);
-		
+		// Tree.printTree(node);
+
 		System.out.println("=======Test Path_Sum========");
 		Path_Sum path_sum = new Path_Sum();
 		result(path_sum, nodeA, 22);
 		result(path_sum, nodeB, 5);
+
 		System.out.println("=======Test Min_Sum========");
 		Min_Depth min_depth = new Min_Depth();
 		result(min_depth, nodeA, 3);
+
 		System.out.println("=======Test Max_Sum========");
 		Max_Depth max_depth = new Max_Depth();
 		result(max_depth, nodeA, 4);
 		result(max_depth, nodeB, 1);
 		result(max_depth, nodeC, 5);
-		System.out.println("=======Test ADD_BINARY========");
+
+		System.out.println("=======Test Add_Binary========");
 		Add_Binary add_binary = new Add_Binary();
-		result(add_binary, "11","1" ,"100");
-		result(add_binary, "11","" ,"11");
-		result(add_binary, "1111111","1" ,"10000000");
+		result(add_binary, "11", "1", "100");
+		result(add_binary, "11", "", "11");
+		result(add_binary, "1111111", "1", "10000000");
+
+		System.out.println("=======Test toNestedList========");
+		Integer[][] arrays = new Integer[][] { { 2, 4 }, { 3, 4 } };
+		System.out.println(toNestedList(arrays));
+
+		System.out.println("=======Test Combinations========");
+		Combinations combinations = new Combinations();
+		result(combinations, 3,2, toNestedList(new Integer[][]{{1,2},{1,3},{2,3}}));
+		Integer[][] input = new Integer[][] { { 2, 4 }, { 3, 4 }, { 2, 3 },
+				{ 1, 2 }, { 1, 3 }, { 1, 4 } };
+		ArrayList<ArrayList<Integer>> res = toNestedList(input);
+		result(combinations, 4, 2, res);
 	}
-	
-	public static void result(Testable test, Object a, Object res){
+
+	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
+		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
+		for (Integer[] i : t) {
+			ret.add(new ArrayList<Integer>(Arrays.asList(i)));
+		}
+		return ret;
+	}
+
+	public static void result(Testable test, Object a, Object res) {
 		boolean result = test.test(a, res);
-		if(result)
+		if (result)
 			System.out.println("pass");
 		else
 			System.out.println("failed");
 	}
-	public static void result(Testable test, Object a, Object b, Object c){
-		boolean result = test.test(a, b,c);
-		if(result)
+
+	public static void result(Testable test, Object a, Object b, Object c) {
+		boolean result = test.test(a, b, c);
+		if (result)
 			System.out.println("pass");
 		else
 			System.out.println("failed");

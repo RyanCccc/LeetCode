@@ -13,10 +13,6 @@ public class Path_Sum extends Testable{
 	public boolean hasPathSumHelper(TreeNode node, int sum, int cur_sum){
 		if(node==null)
 			return false;
-		String left = (node.left==null)?"null":String.valueOf(node.left.val);
-		String right = (node.right==null)?"null":String.valueOf(node.right.val);
-//		System.out.println("node val = " + node.val+", node left = " + left + " and node right = "+ right);
-//		System.out.println("cur_sum = " + cur_sum);
 		cur_sum += node.val;
 		if(node.left==null && node.right==null){
 //			if(cur_sum == sum)
