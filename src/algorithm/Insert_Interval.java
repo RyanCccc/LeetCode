@@ -33,7 +33,6 @@ public class Insert_Interval implements Testable {
 				end += 2;
 			}
 		}
-		System.out.println(start + " " + end);
 		ArrayList<Interval> ret = new ArrayList<Interval>();
 		for (int i = 0; i < start / 2; i++) {
 			ret.add(intervals.get(i));
@@ -55,8 +54,6 @@ public class Insert_Interval implements Testable {
 	@Override
 	public boolean test(Object[] args, Object res) {
 		// TODO Auto-generated method stub
-		System.out.println(insert((ArrayList<Interval>) args[0],
-				(Interval) args[1]));
 		return insert((ArrayList<Interval>) args[0], (Interval) args[1])
 				.equals((ArrayList<Interval>) res);
 	}

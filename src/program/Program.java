@@ -9,6 +9,7 @@ import algorithm.Add_Binary;
 import algorithm.Combinations;
 import algorithm.Insert_Interval;
 import algorithm.Max_Depth;
+import algorithm.Merge_Intervals;
 import algorithm.Min_Depth;
 import algorithm.Path_Sum;
 import algorithm.PlusOne;
@@ -90,6 +91,27 @@ public class Program {
 		interval_list = Interval.generateInterval(new int[]{1,5});
 		interval_res = Interval.generateInterval(new int[]{0,0,1,5});
 		result(insert_interval, new Object[]{interval_list,new Interval(0,0)}, (Object)interval_res);
+		
+		System.out.println("=======Test Merge Intervals========");
+		Merge_Intervals merge_intervals = new Merge_Intervals();
+		interval_list = Interval.generateInterval(new int[]{1,3,2,6,8,10,15,18});
+		interval_res = Interval.generateInterval(new int[]{1,6,8,10,15,18});
+		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{1,4,1,4});
+		interval_res = Interval.generateInterval(new int[]{1,4});
+		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{1,4,4,5,5,6});
+		interval_res = Interval.generateInterval(new int[]{1,6});
+		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{1,4,0,4});
+		interval_res = Interval.generateInterval(new int[]{0,4});
+		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{2,3,4,5,6,7,8,9,1,10});
+		interval_res = Interval.generateInterval(new int[]{1,10});
+		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{2,2,1,3,3,3,3,4,2,3,4,5,4,4});
+		interval_res = Interval.generateInterval(new int[]{1,5});
+		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
