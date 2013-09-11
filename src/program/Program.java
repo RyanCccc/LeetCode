@@ -9,6 +9,7 @@ import algorithm.Combinations;
 import algorithm.Max_Depth;
 import algorithm.Min_Depth;
 import algorithm.Path_Sum;
+import algorithm.Word_Search;
 
 public class Program {
 	public final static int NULL = Integer.MIN_VALUE;
@@ -56,6 +57,18 @@ public class Program {
 				{ 1, 2 }, { 1, 3 }, { 1, 4 } };
 		ArrayList<ArrayList<Integer>> res = toNestedList(input);
 		result(combinations, new Object[]{4, 2}, res);
+		
+		System.out.println("=======Test Word Search========");
+		Word_Search word_search = new Word_Search();
+		char[][] board = new char[][]{
+				{'A','B','C','E'},
+				{'S','F','C','S'},
+				{'A','D','E','E'}
+		};
+		result(word_search, new Object[]{board,"ABCCED"},(Object)true);
+		result(word_search, new Object[]{board,"SEE"},(Object)true);
+		result(word_search, new Object[]{board,"ABCB"},(Object)false);
+		result(word_search, new Object[]{new char[][]{{'A'}},"A"},(Object)true);
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {

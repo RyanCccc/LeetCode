@@ -42,6 +42,7 @@ public class Combinations implements Testable {
 		// TODO Auto-generated method stub
 		// System.out.println(addBinary((String)a,(String)b));
 		ArrayList<ArrayList<Integer>> result = combine((Integer) args[0], (Integer) args[1]);
+		@SuppressWarnings("unchecked")
 		ArrayList<ArrayList<Integer>> exp = (ArrayList<ArrayList<Integer>>) res;
 		for (ArrayList<Integer> r : result) {
 			if (!exp.contains(r))
