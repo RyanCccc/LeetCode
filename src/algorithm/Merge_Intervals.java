@@ -18,7 +18,6 @@ public class Merge_Intervals implements Testable{
 				return arg0.start-arg1.start;
 			}
 		});
-		System.out.println(intervals);
 		ArrayList<Interval> ret = new ArrayList<Interval>();
 		for(int i=0; i<intervals.size(); i++){
 			Interval current = intervals.get(i);
@@ -46,7 +45,6 @@ public class Merge_Intervals implements Testable{
 	public boolean test(Object[] args, Object res) {
 		// TODO Auto-generated method stub
 		ArrayList<Interval> list = merge((ArrayList<Interval>)args[0]);
-		System.out.println(list);
 		return list.equals((ArrayList<Interval>)res);
 	}
 
