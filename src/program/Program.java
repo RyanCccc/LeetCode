@@ -2,6 +2,10 @@ package program;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.sun.org.apache.xpath.internal.operations.Plus;
+
+import sun.org.mozilla.javascript.internal.ObjArray;
 import util.Tree;
 import util.TreeNode;
 import algorithm.Add_Binary;
@@ -9,6 +13,7 @@ import algorithm.Combinations;
 import algorithm.Max_Depth;
 import algorithm.Min_Depth;
 import algorithm.Path_Sum;
+import algorithm.PlusOne;
 import algorithm.Word_Search;
 
 public class Program {
@@ -69,6 +74,12 @@ public class Program {
 		result(word_search, new Object[]{board,"SEE"},(Object)true);
 		result(word_search, new Object[]{board,"ABCB"},(Object)false);
 		result(word_search, new Object[]{new char[][]{{'A'}},"A"},(Object)true);
+		
+		System.out.println("=======Test Plus One========");
+		PlusOne plusOne = new PlusOne();
+		result(plusOne, new Object[]{new int[]{8,9}},(Object)new int[]{9,0});
+		result(plusOne, new Object[]{new int[]{9}},(Object)new int[]{1,0});
+		result(plusOne, new Object[]{new int[]{9,9,9}},(Object)new int[]{1,0,0,0});
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
