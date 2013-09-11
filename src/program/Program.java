@@ -2,14 +2,12 @@ package program;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.sun.org.apache.xpath.internal.operations.Plus;
-
-import sun.org.mozilla.javascript.internal.ObjArray;
+import util.Interval;
 import util.Tree;
 import util.TreeNode;
 import algorithm.Add_Binary;
 import algorithm.Combinations;
+import algorithm.Insert_Interval;
 import algorithm.Max_Depth;
 import algorithm.Min_Depth;
 import algorithm.Path_Sum;
@@ -80,6 +78,18 @@ public class Program {
 		result(plusOne, new Object[]{new int[]{8,9}},(Object)new int[]{9,0});
 		result(plusOne, new Object[]{new int[]{9}},(Object)new int[]{1,0});
 		result(plusOne, new Object[]{new int[]{9,9,9}},(Object)new int[]{1,0,0,0});
+		
+		System.out.println("=======Test Insert Interval========");
+		Insert_Interval insert_interval = new Insert_Interval();
+		ArrayList<Interval> interval_list = Interval.generateInterval(new int[]{1,3,6,9});
+		ArrayList<Interval> interval_res = Interval.generateInterval(new int[]{1,5,6,9});
+		result(insert_interval, new Object[]{interval_list,new Interval(2,5)}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{1,2,3,5,6,7,8,10,12,16});
+		interval_res = Interval.generateInterval(new int[]{1,2,3,10,12,16});
+		result(insert_interval, new Object[]{interval_list,new Interval(4,9)}, (Object)interval_res);
+		interval_list = Interval.generateInterval(new int[]{1,5});
+		interval_res = Interval.generateInterval(new int[]{0,0,1,5});
+		result(insert_interval, new Object[]{interval_list,new Interval(0,0)}, (Object)interval_res);
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
