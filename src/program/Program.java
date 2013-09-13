@@ -3,6 +3,7 @@ package program;
 import java.util.ArrayList;
 import java.util.Arrays;
 import util.Interval;
+import util.ListNode;
 import util.Tree;
 import util.TreeNode;
 import algorithm.Add_Binary;
@@ -11,6 +12,9 @@ import algorithm.Insert_Interval;
 import algorithm.Max_Depth;
 import algorithm.Merge_Intervals;
 import algorithm.Min_Depth;
+import algorithm.Partition_List;
+import algorithm.Pascal_Triangle;
+import algorithm.Pascal_Triangle_2;
 import algorithm.Path_Sum;
 import algorithm.PlusOne;
 import algorithm.Word_Search;
@@ -112,6 +116,22 @@ public class Program {
 		interval_list = Interval.generateInterval(new int[]{2,2,1,3,3,3,3,4,2,3,4,5,4,4});
 		interval_res = Interval.generateInterval(new int[]{1,5});
 		result(merge_intervals, new Object[]{interval_list}, (Object)interval_res);
+		
+		System.out.println("=======Test Pascal_Triangle========");
+		Pascal_Triangle pascal_triangle = new Pascal_Triangle();
+		result(pascal_triangle, new Object[]{5}, (Object)1);
+		Pascal_Triangle_2 pascal_triangle_2 = new Pascal_Triangle_2();
+		result(pascal_triangle_2, new Object[]{5}, (Object)1);
+		
+		System.out.println("=======Test Partition_List========");
+		Partition_List partition_list = new Partition_List();
+		ListNode head = ListNode.genList(new int[]{1,4,3,2,5,2});
+		System.out.println(head);
+		result(partition_list, new Object[]{head,3}, (Object)1);
+		head = ListNode.genList(new int[]{1});
+		result(partition_list, new Object[]{head,2}, (Object)1);
+		head = ListNode.genList(new int[]{5,6,7,8});
+		result(partition_list, new Object[]{head,1}, (Object)1);
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
