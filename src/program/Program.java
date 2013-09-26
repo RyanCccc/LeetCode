@@ -2,6 +2,9 @@ package program;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.sun.org.apache.xerces.internal.impl.dv.ValidatedInfo;
+
 import util.Interval;
 import util.ListNode;
 import util.Tree;
@@ -17,6 +20,8 @@ import algorithm.Pascal_Triangle;
 import algorithm.Pascal_Triangle_2;
 import algorithm.Path_Sum;
 import algorithm.PlusOne;
+import algorithm.ReverseKGroup;
+import algorithm.ValidSudoku;
 import algorithm.Word_Search;
 
 public class Program {
@@ -132,6 +137,29 @@ public class Program {
 		result(partition_list, new Object[]{head,2}, (Object)1);
 		head = ListNode.genList(new int[]{5,6,7,8});
 		result(partition_list, new Object[]{head,1}, (Object)1);
+		
+		System.out.println("=======Test ReverseKGroup========");
+		ReverseKGroup reverseKGroup = new ReverseKGroup();
+		head = ListNode.genList(new int[]{1,2,3,4,5});
+		ListNode res_list = ListNode.genList(new int[]{2,1,4,3,5});
+		result(reverseKGroup, new Object[]{head,2}, (Object)res_list);
+		
+		System.out.println("=======Test ValidSudoku========");
+		char[][] sudoku = new char[][]{
+			{'5','3','.',  '.','7','.',  '.','.','.'},
+			{'6','.','.',  '1','9','5',  '.','.','.'},
+			{'.','9','8',  '.','.','.',  '.','6','.'},
+		
+			{'8','.','.',  '.','6','.',  '.','.','3'},
+			{'4','.','.',  '8','.','3',  '.','.','1'},
+			{'7','.','.',  '.','2','.',  '.','.','6'},
+
+			{'.','6','.',  '.','.','.',  '2','8','.'},
+			{'.','.','.',  '4','1','9',  '.','.','5'},
+			{'.','.','.',  '.','8','.',  '.','7','9'},
+		};
+		ValidSudoku validSudoku = new ValidSudoku();
+		System.out.println(validSudoku.isValidSudoku(sudoku));
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
