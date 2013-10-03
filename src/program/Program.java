@@ -12,7 +12,10 @@ import util.Tree;
 import util.TreeNode;
 import algorithm.Add_Binary;
 import algorithm.Combinations;
+import algorithm.DeleteDuplicates;
 import algorithm.Insert_Interval;
+import algorithm.InterleavingString;
+import algorithm.LetterCombinations;
 import algorithm.Max_Depth;
 import algorithm.Merge_Intervals;
 import algorithm.Min_Depth;
@@ -22,7 +25,9 @@ import algorithm.Pascal_Triangle_2;
 import algorithm.Path_Sum;
 import algorithm.PlusOne;
 import algorithm.ReverseKGroup;
+import algorithm.SearchMatrix;
 import algorithm.SpiralOrder;
+import algorithm.Triangle;
 import algorithm.UniquePaths;
 import algorithm.ValidSudoku;
 import algorithm.Word_Search;
@@ -195,6 +200,34 @@ public class Program {
 				{ 13, 14, 15, 16}
 		};
 		System.out.println(spiralOrder.spiralOrder(s_matrix));
+		
+		
+		System.out.println("=======Test InterleavingString========");
+		InterleavingString interleavingString=new InterleavingString();
+		interleavingString.test();
+		
+		System.out.println("=======Test SearchMatrix========");
+		SearchMatrix searchMatrix = new SearchMatrix();
+		searchMatrix.test();
+		
+		System.out.println("=======Test Triangle========");
+		Triangle triangle = new Triangle();
+		Integer[][] tri_matrix = new Integer[][] { 
+				{2},
+			    {3,4},
+			   {6,5,7},
+			  {4,1,8,3}
+		};
+		ArrayList<ArrayList<Integer>> triangle_matrix = toNestedList(tri_matrix);
+		triangle.test(triangle_matrix);
+		
+		System.out.println("=======Test LetterCombinations========");
+		LetterCombinations letterCombinations = new LetterCombinations();
+		letterCombinations.test();
+		
+		System.out.println("=======Test DeleteDuplicates========");
+		DeleteDuplicates deleteDuplicates = new DeleteDuplicates();
+		deleteDuplicates.test();
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
