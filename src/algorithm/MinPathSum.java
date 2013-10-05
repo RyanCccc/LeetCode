@@ -1,3 +1,5 @@
+package algorithm;
+
 public class MinPathSum{
     public int minPathSum(int[][] grid) {
         // Start typing your Java solution below

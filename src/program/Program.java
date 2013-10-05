@@ -16,6 +16,7 @@ import algorithm.Partition_List;
 import algorithm.Pascal_Triangle;
 import algorithm.Pascal_Triangle_2;
 import algorithm.Path_Sum;
+import algorithm.Permutations_2;
 import algorithm.PlusOne;
 import algorithm.Word_Search;
 
@@ -132,6 +133,10 @@ public class Program {
 		result(partition_list, new Object[]{head,2}, (Object)1);
 		head = ListNode.genList(new int[]{5,6,7,8});
 		result(partition_list, new Object[]{head,1}, (Object)1);
+		
+		System.out.println("=======Test Permutations_2========");
+		Permutations_2 per2 = new Permutations_2();
+		System.out.println(per2.permuteUnique(new int[]{1,1,1,1,1,1,1,1,1,1,1,1,2}));
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
