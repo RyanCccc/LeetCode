@@ -28,4 +28,19 @@ public class ListNode {
 		}
 		return sb.toString();
 	}
+	
+	@Override
+	public boolean equals(Object obj){
+		ListNode other = (ListNode) obj;
+		ListNode me = this;
+		while(other!=null && me!=null){
+			if(other.val!=me.val)
+				return false;
+			else{
+				other = other.next;
+				me = me.next;
+			}
+		}
+		return other==me;
+	}
 }

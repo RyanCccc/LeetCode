@@ -49,12 +49,42 @@ public class Insert_Interval implements Testable {
 		}
 		return ret;
 	}
+	
+	public ArrayList<Interval> insert_2(ArrayList<Interval> intervals, Interval newInterval) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        ArrayList<Interval> ret = new ArrayList<Interval>();
+        int i=0;
+        int size = intervals.size();
+        while(i<size && intervals.get(i).end<newInterval.start){
+        	ret.add(intervals.get(i));
+        	i++;
+        }
+        while(i<size && intervals.get(i).start<=newInterval.end){
+        	newInterval.start = Math.min(intervals.get(i).start, newInterval.start);
+        	newInterval.end = Math.max(intervals.get(i).end, newInterval.end);
+        	i++;
+        }
+        ret.add(newInterval);
+        while(i<size){
+        	ret.add(intervals.get(i));
+        	i++;
+        }
+        return ret;
+    }
+
+    public boolean overlap(Interval interval, Interval main){
+        int x = interval.start;
+        int y = interval.end;
+        int X = main.start;
+        int Y = main.end;
+        return (x>X && x<Y) || (y>X && y<Y);
+    }
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean test(Object[] args, Object res) {
 		// TODO Auto-generated method stub
-		return insert((ArrayList<Interval>) args[0], (Interval) args[1])
+		return insert_2((ArrayList<Interval>) args[0], (Interval) args[1])
 				.equals((ArrayList<Interval>) res);
 	}
 
