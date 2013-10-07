@@ -16,6 +16,7 @@ import algorithm.LetterCombinations;
 import algorithm.Max_Depth;
 import algorithm.Merge_Intervals;
 import algorithm.Min_Depth;
+import algorithm.NQueens;
 import algorithm.Partition_List;
 import algorithm.Pascal_Triangle;
 import algorithm.Pascal_Triangle_2;
@@ -222,6 +223,10 @@ public class Program {
 		System.out.println("=======Test DeleteDuplicates========");
 		DeleteDuplicates deleteDuplicates = new DeleteDuplicates();
 		deleteDuplicates.test();
+		
+		System.out.println("=======Test NQueens========");
+		NQueens nQueens = new NQueens();
+		nQueens.test();
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
