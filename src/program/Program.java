@@ -2,6 +2,8 @@ package program;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 
 import util.Interval;
 import util.ListNode;
@@ -29,6 +31,7 @@ import algorithm.SpiralOrder;
 import algorithm.Triangle;
 import algorithm.UniquePaths;
 import algorithm.ValidSudoku;
+import algorithm.WordBreak;
 import algorithm.Word_Search;
 
 public class Program {
@@ -227,6 +230,18 @@ public class Program {
 		System.out.println("=======Test NQueens========");
 		NQueens nQueens = new NQueens();
 		nQueens.test();
+		
+		System.out.println("=======Test WordBreak========");
+		WordBreak wordBreak = new WordBreak();
+		wordBreak.test();
+		
+		HashSet<ArrayList<Integer>> ret = new HashSet<ArrayList<Integer>>();
+		ArrayList<Integer> LIST = new ArrayList<Integer>();
+		LIST.add(1);
+		LIST.add(2);
+		ret.add((ArrayList<Integer>)LIST.clone());
+		System.out.println(new ArrayList<ArrayList<Integer>>(ret));
+		
 	}
 
 	public static ArrayList<ArrayList<Integer>> toNestedList(Integer[][] t) {
