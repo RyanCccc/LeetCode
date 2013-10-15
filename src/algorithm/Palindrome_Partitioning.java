@@ -10,9 +10,9 @@ public class Palindrome_Partitioning {
         return helper(s,map);
     }
     public ArrayList<ArrayList<String>> helper(String s, HashMap<String, ArrayList<ArrayList<String>>> map){
-        if(map.containsKey(s)){
-			return map.get(s);
-		}
+        //if(map.containsKey(s)){
+			//return map.get(s);
+		//}
         ArrayList<ArrayList<String>> ret = new ArrayList<ArrayList<String>>();
         if(s.length()==0){
             ret.add(new ArrayList<String>());
@@ -32,7 +32,7 @@ public class Palindrome_Partitioning {
         for(ArrayList<String> list:ret){
         	clone.add((ArrayList<String>)list.clone());
         }
-        map.put(s, clone);
+        //map.put(s, clone);
         return ret;
     }
     public boolean isP(String str){
